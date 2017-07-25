@@ -1,0 +1,29 @@
+关于BigDecimal.ROUND_HALF_UP与ROUND_HALF_DOWN
+2017.07.24 星期一
+今天遇到了一个算是函数吧，是一个数值取值的问题，
+roundhalfup ，起四舍五入的作用。
+
+ROUND_HALF_UP: 遇到.5的情况时往上近似,例: 1.5 ->;2
+ROUND_HALF_DOWN : 遇到.5的情况时往下近似,例: 1.5 ->;1
+
+用法：
+        BigDecimal b = new BigDecimal(9.655 );
+	    System.out.println(b.setScale(3,BigDecimal.ROUND_HALF_UP));
+       // setScale（n,BigDecimal.ROUND_HALF_UP）n代表保留小数点后几位
+
+ROUND_CEILING     
+  如果   BigDecimal   是正的，则做   ROUND_UP   操作；如果为负，则做   ROUND_DOWN   操作。     
+  ROUND_DOWN     
+  从不在舍弃(即截断)的小数之前增加数字。     
+  ROUND_FLOOR     
+  如果   BigDecimal   为正，则作   ROUND_UP   ；如果为负，则作   ROUND_DOWN   。     
+  ROUND_HALF_DOWN     
+  若舍弃部分>   .5，则作   ROUND_UP；否则，作   ROUND_DOWN   。     
+  ROUND_HALF_EVEN     
+  如果舍弃部分左边的数字为奇数，则作   ROUND_HALF_UP   ；如果它为偶数，则作   ROUND_HALF_DOWN   。     
+  ROUND_HALF_UP     
+  若舍弃部分>=.5，则作   ROUND_UP   ；否则，作   ROUND_DOWN   。     
+  ROUND_UNNECESSARY     
+  该“伪舍入模式”实际是指明所要求的操作必须是精确的，，因此不需要舍入操作。     
+  ROUND_UP     
+  总是在非   0   舍弃小数(即截断)之前增加数字。

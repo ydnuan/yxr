@@ -1,0 +1,2 @@
+右击maven项目，properties---》Deployment Assermbly
+找到 Source 列下的Maven Dependencies， 并填写 “WEB-INF/lib”到Deploy Path下

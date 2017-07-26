@@ -1,0 +1,6 @@
+我下载的maven在d盘下，进入d盘的config下，找到settings.xml，
+地址：D:\apache-maven-3.3.9-bin\apache-maven-3.3.9\conf\settings.xml
+在settings.xml里找到标签为 <localRepository></localRepository> 的标签
+将他修改为自己仓库的地址。如，我的仓库名称叫  MavenRepository，就把
+该标签改为   <localRepository>D:\MavenRepository</localRepository>
+详情查看：http://blog.csdn.net/qq_27093465/article/details/52957253

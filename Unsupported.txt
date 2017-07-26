@@ -1,0 +1,32 @@
+http://www.oecp.cn/hi/yangtaoorange/blog/1168263
+http://www.cnblogs.com/edwinchen/p/3979586.html
+解决Unsupported major.minor version 51.0问题的感悟
+我遇到这个问题是在自己导入maven项目时，启动tomcat时无法将class文件编译到tomcat下，奋斗两天无果，
+实在不行就求助了同学，他说maven clean，然后maven install。当我install时就爆出了这个
+问题“Unsupported major.minor version 51.”
+这个错误是因为JDK版本的问题，当时自己的jdk是1.6，tomcat也是6. 而项目的开发环境是
+jdk1.8，tomcat6.网上有些说右击项目 properties--->java Compiler 修改jdk版本，这个
+对我是不管用的。
+当时的自己不知道生产环境是什么，还是朋友提醒，才想到了问了开发人员，还真是因为生产环境不一致的问题
+所以我再次提醒自己，数据是不会说谎的，他说是哪的问题，就肯定是哪的问题，别说自己已经
+检查好几遍了，肯定没问题的，诸如此类的话语。
+
+所以，我也提醒大家，如果导入了svn或git上的项目，出现项目无法编译的问题，首先想到
+是否与生产环境一致。jdk、tomcat是否一致。
+各JDK版本对应的错误编号如下：
+
+J2SE 8 = 52,
+
+J2SE 7 = 51,
+
+J2SE 6.0 = 50,
+
+J2SE 5.0 = 49,
+
+JDK 1.4 = 48,
+
+JDK 1.3 = 47,
+
+JDK 1.2 = 46,
+
+JDK 1.1 = 45

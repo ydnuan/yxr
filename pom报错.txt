@@ -1,0 +1,5 @@
+导入maven后，项目报错，其中点开pom文件后，显示 ArtifactDescriptoorException：
+Failed to read 。。。
+点击查看详情，他会显示类似“org.apache.commons:commons.langs:jar:3.3.2”
+去仓库里找到该jar包的地址，删掉3.3.2这个文件夹，按住 alt+F5 重新下载最新的jar包
+详情查看：https://jingyan.baidu.com/article/a3761b2bdaa7501576f9aa8b.html

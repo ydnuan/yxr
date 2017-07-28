@@ -1,0 +1,17 @@
+<c:if test=”${user.visitCount==1}”>
+       This is your first visit .
+</c:if>
+
+
+如果结果为false则不输出中间的内容
+
+
+<c:if test="${!empty permissionMap}">    
+<c:forEach items="${permissionMap}" var="item">  
+<tr>  
+    <td>${item.value.id}</td>  
+    <td>${item.value.urlOnClass}</td>  
+    <td>${item.value.urlOnMethod}</td>  
+</tr>  
+</c:forEach>  
+</c:if>    

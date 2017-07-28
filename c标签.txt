@@ -4,7 +4,8 @@
 
 
 如果结果为false则不输出中间的内容
-
+刚才在页面判断一个对象是否为空，怎么写也不对，就用了下面的方法来判断
+对象内容是否为空，然后突然想到，以前的写法好像是：(<c:if test="$(!permissionMap.isEmpty)</c:if>")
 
 <c:if test="${!empty permissionMap}">    
 <c:forEach items="${permissionMap}" var="item">  

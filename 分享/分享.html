@@ -1,0 +1,575 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>分享</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>It小组分享——使用MarkDown编写接口开发文档</h1>
+<ul>
+<li>author：杨旭日</li>
+</ul>
+<h2>目录</h2>
+<h3>一、MarkDown编辑器简介</h3>
+<p><a href="#request_data"><strong><font color="blue">　　简介</font></strong></a><br>
+<a href="#request_zongzhi"><strong><font color="blue">&emsp;&emsp;宗旨</font></strong></a><br>
+<a href="#request_yingyong"><strong><font color="blue">　　应用</font></strong></a><br>
+<a href="#request_tedian"><strong><font color="blue">&emsp;&emsp;特点</font></strong></a><br>
+<a href="#request_kaifazhe"><strong><font color="blue"> &emsp;&emsp;开发者</font></strong></a><br>
+<a href="#request_houzhui"><strong><font color="blue">&emsp;&emsp;文件后缀名</font></strong></a><br>
+<a href="#request_yongtu"><strong><font color="blue">&emsp;&emsp;用途</font></strong></a><br>
+<a href="#request_bianji"><strong><font color="blue">&emsp;&emsp;常用的Markdown编辑器</font></strong></a><br>
+<a href="#request_kuaijiejian"><strong><font color="blue">&emsp;&emsp;快捷键</font></strong></a><br>
+<a href="#request_qukuai"><strong><font color="blue">&emsp;&emsp;区块元素</font></strong></a><br></p>
+<h3>二、接口编写流程</h3>
+<p><a href="#request_liucheng"><strong><font color="blue">&emsp;&emsp;接口开发文档编写流程</font></strong></a><br></p>
+<h2></h2>
+<h2>一、 MarkDown编辑器简介</h2>
+<h3><span id="request_data"> <font color="blue"> &emsp;简介</font><span></h3>
+<p>&emsp;&emsp;&emsp;Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式。</p>
+<h3><span id="request_zongzhi"> <font color="blue"> &emsp;宗旨</font><span></h3>
+<p>&emsp;&emsp;&emsp;易读易写</p>
+<h3><span id="request_yingyong"> <font color="blue">&emsp;应用</font><span></h3>
+<p>&emsp;&emsp;&emsp;文档快速排版</p>
+<h3><span id="request_tedian"> <font color="blue"> &emsp;特点</font><span></h3>
+<p>&emsp;&emsp;&emsp;轻量、简单、通用</p>
+<h3><span id="request_kaifazhe"> <font color="blue"> &emsp;开发者</font><span></h3>
+<p>&emsp;&emsp;&emsp;John Gruber，作家（知名科技博客作者），UI设计师，狂热果粉，同时还是近年来大名鼎鼎的 Markdown 语言的开发者。
+<center><img src="http://oho5vvdsd.bkt.clouddn.com/film_yourname3.jpg" /></center></p>
+<h3><span id="request_houzhui"> <font color="blue"> &emsp;文件后缀名</font><span></h3>
+<p>&emsp;&emsp;&emsp;.md;.markdown;.mdown</p>
+<h3><span id="request_yongtu"> <font color="blue"> &emsp;用途</font><span></h3>
+<p>&emsp;&emsp;&emsp;Markdown的语法简洁明了、学习容易，而且功能比纯文本更强，因此有很多人用它写博客。世界上最流行的博客平台WordPress和大型CMS如Joomla、Drupal都能很好的支持Markdown。完全采用Markdown编辑器的博客平台有Ghost和Typecho。<br>
+&emsp;&emsp;&emsp;用于编写说明文档，并且以“README.MD”的文件名保存在软件的目录下面。
+除此之外，现在由于我们有了RStudio这样的神级编辑器，我们还可以快速将Markdown转化为演讲PPT、Word产品文档、LaTex论文甚至是用非常少量的代码完成最小可用原型。在数据科学领域，Markdown已经被确立为科学研究规范，极大地推进了动态可重复性研究的历史进程。</p>
+<h3><span id="request_bianji"> <font color="blue"> &emsp;常用的Markdown编辑器</font><span></h3>
+<ul>
+<li>Windows<br>
+  Atom、<font color="red">MarkdownPad</font>、Miu、Typora、RStudio</li>
+<li>Linux<br>
+   Atom、ReText、UberWriter、RStudio</li>
+<li>iOS<br>
+   Byword</li>
+<li>
+<p>OSX<br>
+Atom、Byword、Mou、Typora、MacDown 、RStudio</p>
+</li>
+<li>
+<p>浏览器插件<br>
+   MaDo (Chrome)、Marxico（Chrome）</p>
+</li>
+<li>
+<p>高级应用<br>
+Sublime Text 2 + MarkdownEditing </p>
+</li>
+</ul>
+<h3><span id="request_kuaijiejian"> <font color="blue"> &emsp;快捷键</font><span></h3>
+<p>&emsp;&emsp;<a href="http://www.cnblogs.com/ckb58/p/5884849.html" title="快捷键">http://www.cnblogs.com/ckb58/p/5884849.html</a></p>
+<h3><span id="request_qukuai"> <font color="blue"> &emsp;区块元素</font><span></h3>
+<h1>1、标题</h1>
+<p>为了获得上面的 “1. 标题”， 在 Markdown 编辑器里输入：</p>
+<pre><code># 1.标题
+</code></pre>
+
+<p>“#” 后最好加个空格。除此之外，还有 5 级标题，依次有不同的字体大小，即</p>
+<pre><code>## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+</code></pre>
+
+<p>这样就有：</p>
+<h2>二级标题</h2>
+<h3>三级标题</h3>
+<h4>四级标题</h4>
+<h5>五级标题</h5>
+<h6>六级标题</h6>
+<h1>2.加粗、加斜</h1>
+<p>最常用的强调方式，那就是 <strong>加粗</strong> 了，你得这样：</p>
+<pre><code>最常用的强调方式，那就是 **加粗** 了，你得这样：
+</code></pre>
+
+<p>斜体则多用在于书名，比如：我从来没看过 <em>Jane Eyre</em></p>
+<pre><code>斜体则多用在于书名，比如：我从来没看过 *Jane Eyre*
+</code></pre>
+
+<h1>3.层次</h1>
+<p>比如写个读书笔记，你得</p>
+<h4>第一章</h4>
+<ol>
+<li>第一节</li>
+<li>
+第二节
+<ul>
+<li>
+第一小节
+<ul>
+<li>小小节1</li>
+<li>小小节2</li>
+</ul>
+</li>
+<li>第二小节</li>
+</ul>
+</li>
+</ol>
+<pre><code>#### 第一章 ####
+1. 第一节
+2. 第二节
+  * 第一小节
+      * 小小节1
+      * 小小节2
+   * 第二小节
+</code></pre>
+
+<p>“*” 后面要加空格，这是必须的，除了 *，还可以使用 + 或者 -。</p>
+<h2>二、接口编写流程</h2>
+<h3><span id="request_liucheng"> <font color="blue">接口开发文档编写流程</font><span></h3>
+<ul>
+<li>文档名称</li>
+<li>author：xxx</li>
+<li>接口地址（开发环境）：http：//192.168.1.70</li>
+<li>接口类别：内部</li>
+<li>保密级别：仅供开发人员</li>
+<li>更新记录</li>
+<li>目录 <br>　　一、接口信息<br>　　二、错误代码</li>
+<li>一、接口信息<br>　　重要说明（可以不写）<br>
+  1、查询报告模板（如：接口名称） <br>
+接口地址：/setReportTemplate<br>请求参数：parameters<br>
+发送方式： post/get<br>
+返回值： errCode,errMsg,data<br></li>
+<li><p>请求参数</p></li>
+</ul>
+<table>
+<thead>
+<tr>
+	<th>名称</th>
+	<th>类型</th>
+	<th>必填</th>
+	<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>id</td>
+	<td>int</td>
+	<td>是</td>
+	<td>用户ID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>返回参数：</p>
+例：</li>
+</ul>
+<table>
+<thead>
+<tr>
+	<th>名称</th>
+	<th>类型</th>
+	<th>说明</th>
+	<th>成功</th>
+	<th>失败</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>errCode</td>
+	<td>int</td>
+	<td>错误码</td>
+	<td>0</td>
+	<td>1001</td>
+</tr>
+<tr>
+	<td>errMsg</td>
+	<td>String</td>
+	<td>信息</td>
+	<td>ok</td>
+	<td><a href="#request_cuowu"><strong><font color="blue">错误码说明</font></strong></a></td>
+</tr>
+<tr>
+	<td>data</td>
+	<td>Map</td>
+	<td>返回数据</td>
+	<td><a href="#request_shujv"><strong><font color="blue">返回数据说明</font></strong></a></td>
+	<td>null</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><span id="request_shujv"> <font color="blue">返回数据说明：</font><span><br>
+例1：</li>
+</ul>
+<table>
+<thead>
+<tr>
+	<th>名称</th>
+	<th>类型</th>
+	<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>openId</td>
+	<td>String</td>
+	<td>用户ID</td>
+</tr>
+<tr>
+	<td>name</td>
+	<td>String</td>
+	<td>姓名</td>
+</tr>
+<tr>
+	<td>QRcodeUrl</td>
+	<td>String</td>
+	<td>二维码地址</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;&emsp;例2：</p>
+<table>
+<thead>
+<tr>
+	<th>名称</th>
+	<th>类型</th>
+	<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>userId</td>
+	<td>int</td>
+	<td>用户ID</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回示例 1：</li>
+</ul>
+<pre><code>http://h5.dev.piaohuitong.cn/InvoiceManager/html/index.html?openid=openid&amp;name=name&amp;defaultId=defaultid&amp;Invoice_type=type&amp;QRcodeUrl=url&amp;uId=id&amp;titleId=titleId
+</code></pre>
+
+<ul>
+<li>返回示例 2：</li>
+</ul>
+<pre><code>{
+  &quot;errCode&quot;: 0,
+  &quot;errMsg&quot;: &quot;ok&quot;, 
+  data&quot;: {
+    &quot;userId&quot;: 2
+  }
+}
+</code></pre>
+
+<h2><span id="request_cuowu"> <font color="blue"> 二、错误码说明 </font><span><br></h2>
+<table>
+<thead>
+<tr>
+	<th>错误码</th>
+	<th>errMsg</th>
+	<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+	<td>0</td>
+	<td>ok</td>
+	<td>请求成功</td>
+</tr>
+<tr>
+	<td>1001</td>
+	<td>失败</td>
+	<td>查询失败/数据库插入失败/更新失败</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

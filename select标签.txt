@@ -1,0 +1,66 @@
+上周迅速的完成了任务，还以为没什么呢。结果昨天测试的时候才发现自己少写了一个功能。
+这次要完成的任务有个二级联动。自己就匆匆的写完了下拉列表功能，忘记第一个下拉列表会出现多个数据的情况了
+所以昨天下午15.30的时候开始修改bug，自己第一次做二级联动，好在自己对于ajax还算熟练，所以思路有了但是不确定是否是
+二级联动，所以就有所犹豫。自己总是对于第一次遇到的问题很被动。不知所措，还好ajax还是懂些的。
+下面是我页面上用的内容及前两天的c标签的总结。（c标签的集合详情请查看该地址：http://blog.csdn.net/baicp3/article/details/15848039）
+        <c:if test="${!empty reportIdAndName }">   :集合前添加empty 可判断reportIdAndName集合是否为空
+
+		 ${fn:length(reportIdAndName)}  ：fn:length(reportIdAndName) 判断reportIdAndName集合的长度，如：fn:length(reportIdAndName)>1 集合的长度是否大于1
+					
+                    下面这段代码指的是，当reportIdAndName集合的长度大于1并且集合不为空的时候，才显示下拉列表
+                     <c:if test="${fn:length(reportIdAndName)>1 && !empty reportIdAndName}
+					<select name="selectReport" id="selectReport" >
+					<c:forEach items="${reportIdAndName}" var="reportIdAndName">
+						<option value="${reportIdAndName.tOrSId }" >${reportIdAndName.name}</option>
+					</c:forEach>
+					</select>
+ 					</c:if> 
+
+
+二级联动时用到的ajax
+
+<body>
+<select name="selectReport" id="selectReport"> </select>
+
+<script type="text/javascript">
+    function ajax(){
+	
+			var optionsProduct=$("#selectPro option:selected");  //获取下拉列表 选中的项
+			var valueId= optionsProduct.val();
+			$.ajax({
+				type : "GET",
+				url : "${cxp}/hr_manager/result/activityToolAction.do?method=getAjax", 
+				data : {value:valueId,
+						eid:${eid}},
+				contentType: "application/json; charset=utf-8",
+				dataType : "json",
+				error : function() {
+					 alert("error出错了数据查到的可能是空：暂无数据"); 
+				},
+				success : function(data){
+					$("#selectReport").empty();   //清空下拉列表。  empty()是清空标签的属性，还有 hide()是隐藏， show()是显示。
+					
+					if(data[0].flag==false||data[0].list.length==1){
+				
+						$("#selectReport").hide();
+						return;
+					}else{
+						$("#selectReport").show();
+					}
+					if(data.length!=0){
+					for(var i=0;i<data.length;i++){
+						 var optionstring = "";  
+						for(var j=0;j<data[i].list.length;j++){
+						
+                            optionstring += "<option value=\"" + data[i].list[j].tOrSId + "\" >" + data[i].list[j].name + "</option>";  
+						}
+                        $("#selectReport").html(optionstring);
+                     /* $("#selectReport").html("<option value='请选择'>请选择...</option> "+optionstring); */
+				
+					}}
+				}
+			});
+			
+		}
+     </script>
+</body>

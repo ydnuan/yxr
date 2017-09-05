@@ -1,0 +1,25 @@
+项目提示了：
+            10:05:27,522  INFO TableMetadata:69 - INDEXES: [PRIMARY]
+            10:05:27,627 ERROR SchemaUpdate:212 - Unsuccessful: ALTER TABLE ENTERPRISEHISTORY ADD INDEX FK709B71F3423BCAE2 (orderNumber_id), ADD CONSTRAINT FK709B71F3423BCAE2 FOREIGN KEY (orderNumber_id) REFERENCES enterprise_order (id)
+            10:05:27,628 ERROR SchemaUpdate:213 - Can't create table '.\zhiding2\#sql-1160_1533c.frm' (errno: 150)
+
+老提示我添加索引，我把配置文件里的
+
+
+                <property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+<!-- 			<prop key="hibernate.hbm2ddl.auto">update</prop>  -->
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.cache.provider_class">
+					org.hibernate.cache.EhCacheProvider
+				</prop>
+			</props>
+		</property>
+
+
+
+    		<prop key="hibernate.hbm2ddl.auto">update</prop> 这行注释掉了，数据库中可能有脏数据，在更新数据库的时候可能出错了。导致项目在启动tomcat的时候无法启动
+            提示了上述的错误信息。

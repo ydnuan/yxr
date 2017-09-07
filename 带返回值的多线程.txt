@@ -1,3 +1,6 @@
+网址：http://www.cnblogs.com/brolanda/p/4707049.html
+     http://lavasoft.blog.51cto.com/62575/222082/
+
 最近需要调接口获取多人的成绩，但是该接口只支持导出一人成绩，所以，为了节省时间
 就利用了多线程，将线程返回的值收集起来，组成多人成绩进行excel导出
 

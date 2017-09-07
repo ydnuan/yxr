@@ -1,0 +1,96 @@
+最近需要调接口获取多人的成绩，但是该接口只支持导出一人成绩，所以，为了节省时间
+就利用了多线程，将线程返回的值收集起来，组成多人成绩进行excel导出
+
+可返回值的任务必须实现Callable接口，类似的，无返回值的任务必须Runnable接口。
+ 
+执行Callable任务后，可以获取一个Future的对象，在该对象上调用get就可以获取到Callable任务返回的Object了。
+
+简单的示例：
+
+import java.util.concurrent.*; 
+
+/** 
+* Java线程：有返回值的线程 
+* 
+* @author Administrator 2009-11-5 0:41:50 
+*/ 
+public class Test { 
+        public static void main(String[] args) throws ExecutionException, InterruptedException { 
+                //创建一个线程池 
+                ExecutorService pool = Executors.newFixedThreadPool(2); 
+                //创建两个有返回值的任务 
+                Callable c1 = new MyCallable("A"); 
+                Callable c2 = new MyCallable("B"); 
+                //执行任务并获取Future对象 
+                Future f1 = pool.submit(c1); 
+                Future f2 = pool.submit(c2); 
+                //从Future对象上获取任务的返回值，并输出到控制台 
+                System.out.println(">>>"+f1.get().toString()); 
+                System.out.println(">>>"+f2.get().toString()); 
+                //关闭线程池 
+                pool.shutdown(); 
+        } 
+} 
+
+class MyCallable implements Callable{ 
+        private String oid; 
+
+        MyCallable(String oid) { 
+                this.oid = oid; 
+        } 
+
+        @Override 
+        public Object call() throws Exception { 
+                return oid+"任务返回的内容"; 
+        } 
+}
+
+我在项目中的示例：
+public class Test{
+public static void mian(String[] args){
+    //创建一个线程池
+    ExecutorService pool = Executors.newFixedThreadPool(10);
+    Callable callable = new ExecutorServiceUtil(exportreportUrl, params); //创建任务
+    Future future = pool.submit(callable);
+     //关闭线程池 
+     pool.shutdown(); 
+ }
+
+ }
+ class ExecutorServiceUtil implements Callable {
+	private String json;
+	public ExecutorServiceUtil(String url, String params) {
+		JSONObject json = null;
+		String jsonStr = "";
+		if (!"".equals(params)) {
+			url +=  params;
+		}
+		System.out.println(url);
+		String responseMsg = "";
+		HttpClient httpClient = new HttpClient();
+		httpClient.getParams().setContentCharset("utf-8");
+		PostMethod postMethod = new PostMethod(url);
+		try {
+			httpClient.executeMethod(postMethod);
+			responseMsg = postMethod.getResponseBodyAsString().trim();
+			json=JSONObject.fromObject(responseMsg);
+			jsonStr = json.get("personResultModel").toString();
+			System.out.println(responseMsg);
+		} catch (HttpException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			postMethod.releaseConnection();
+		}
+		this.json = json.toString();
+	}
+	@Override
+	public Object call() throws Exception {
+		  System.out.println("call()方法被自动调用,干活！！！             " + Thread.currentThread().getName());
+		 System.out.println("call()方法被自动调用，任务的结果是：" + json + "    " + Thread.currentThread().getName());
+		return json;
+	}
+
+}
+
